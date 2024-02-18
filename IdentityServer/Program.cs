@@ -1,23 +1,36 @@
-using IdentityServer;
-using IdentityServer4.Test;
-using IdentityServerHost.Quickstart.UI;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+string connectionString = builder.Configuration.GetConnectionString("PostgreSQLConnection");
 
-builder.Services.AddControllersWithViews();
-builder.Services.AddIdentityServer(options =>
+var migrationsAssembly = typeof(Program).Assembly.GetName().Name;
+
+//builder.Services.AddControllersWithViews();
+//builder.Services.AddIdentityServer(options =>
+//{
+//    options.Events.RaiseErrorEvents = true;
+//    options.Events.RaiseInformationEvents = true;
+//    options.Events.RaiseFailureEvents = true;
+//    options.Events.RaiseSuccessEvents = true;
+//})
+//.AddTestUsers(TestUsers.Users)
+//.AddInMemoryIdentityResources(Config.IdentityResources)
+//.AddInMemoryApiScopes(Config.ApiScopes)
+//.AddInMemoryApiResources(Config.ApiResources)
+//.AddInMemoryClients(Config.Clients)
+//.AddDeveloperSigningCredential();
+
+
+builder.Services.AddIdentityServer()
+.AddConfigurationStore(options =>
 {
-    options.Events.RaiseErrorEvents = true;
-    options.Events.RaiseInformationEvents = true;
-    options.Events.RaiseFailureEvents = true;
-    options.Events.RaiseSuccessEvents = true;
+    options.ConfigureDbContext = b => b.UseNpgsql(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
 })
-                .AddTestUsers(TestUsers.Users)
-                .AddInMemoryIdentityResources(Config.IdentityResources)
-                .AddInMemoryApiScopes(Config.ApiScopes)
-                .AddInMemoryApiResources(Config.ApiResources)
-                .AddInMemoryClients(Config.Clients)
-                .AddDeveloperSigningCredential();
+.AddOperationalStore(options =>
+{
+    options.ConfigureDbContext = b => b.UseNpgsql(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+    options.EnableTokenCleanup = true;
+});
 
 var app = builder.Build();
 
