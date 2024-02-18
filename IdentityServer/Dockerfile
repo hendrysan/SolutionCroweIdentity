@@ -13,7 +13,7 @@ COPY ["./IdentityServer.csproj", "IdentityServer/"]
 RUN dotnet restore "./IdentityServer/IdentityServer.csproj"
 COPY . .
 WORKDIR "/src/IdentityServer"
-RUN dotnet build "./IdentityServer.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "IdentityServer.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
