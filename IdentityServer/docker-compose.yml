@@ -1,0 +1,9 @@
+version: '3.4'
+services:
+  identityserver:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 49504:8080
+    container_name: croweidentityserver
