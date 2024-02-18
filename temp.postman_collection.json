@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "2ff7b535-da75-49ba-8318-1856c1c06407",
+		"name": "temp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29059951",
+		"_collection_link": "https://human-resource-module.postman.co/workspace/Team-Workspace~a7db6e09-b713-415e-8022-1adfd9f7ae6c/collection/29059951-2ff7b535-da75-49ba-8318-1856c1c06407?action=share&source=collection_link&creator=29059951"
+	},
+	"item": [
+		{
+			"name": "Identity",
+			"item": [
+				{
+					"name": "token public",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "api1",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "demo_api_swagger",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "secret",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://103.171.164.79:49504/connect/token",
+							"protocol": "http",
+							"host": [
+								"103",
+								"171",
+								"164",
+								"79"
+							],
+							"port": "49504",
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MeetingEvent public",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://103.171.164.79:7228/api/MeetingEvent",
+							"protocol": "http",
+							"host": [
+								"103",
+								"171",
+								"164",
+								"79"
+							],
+							"port": "7228",
+							"path": [
+								"api",
+								"MeetingEvent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "WeatherForecast",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://103.171.164.79:7228/WeatherForecast",
+							"protocol": "http",
+							"host": [
+								"103",
+								"171",
+								"164",
+								"79"
+							],
+							"port": "7228",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://103.171.164.79:7228/api/MeetingEvent/:id",
+							"protocol": "http",
+							"host": [
+								"103",
+								"171",
+								"164",
+								"79"
+							],
+							"port": "7228",
+							"path": [
+								"api",
+								"MeetingEvent",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkE5NEUwQ0JCRjM3NDcwQUI1NkVDQTU3NzE4NDg3MEY1IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MDgyNjQwNTIsImV4cCI6MTcwODI2NzY1MiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDk1MDQiLCJhdWQiOiJhcGkxIiwiY2xpZW50X2lkIjoiZGVtb19hcGlfc3dhZ2dlciIsImp0aSI6IjQwNzQ1RUY4NkQ0RjM1NDU1NTBBNzQwNTJFQjRGRUVCIiwiaWF0IjoxNzA4MjY0MDUyLCJzY29wZSI6WyJhcGkxIl19.atm60-WO2wZ6yoR636e0z3JH7er3CjAew7TbzM4QrZK8-E_HNw9iDEZ1xR16kZnOtWLuMY-H4fD5gTZ262gcivUm6luF3Bn2kIdox4q7kzOHMlffR1AOjuGoLw0w7-ttaTE7_z-OywRndZ2uEI8hpcdbQKJsl1Wkmc-sffkVT-fgAtY17LLdrSFDPrOsINXhf55wCpD93QsthwrJSgzqrzn4Oy5Vh1OFX2EYfZxmIGyxaS7JLn_LpDzKRy3UZIUM82WB1WaHDq2f3_RcuNCwb_CLDeu7ciEUvKIH4FL7S8V_jWQ1inxx5LQhclZs0ncdMd-AO4Sy4e_zi3iL3fIVSA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"string\",\r\n    \"startDate\": \"2024-02-18T13:41:26.725Z\",\r\n    \"endDate\": \"2024-02-18T13:41:26.725Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://103.171.164.79:7228/api/MeetingEvent",
+							"protocol": "http",
+							"host": [
+								"103",
+								"171",
+								"164",
+								"79"
+							],
+							"port": "7228",
+							"path": [
+								"api",
+								"MeetingEvent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n    \"name\": \"string2\",\r\n    \"startDate\": \"2024-02-18T13:41:26.725Z\",\r\n    \"endDate\": \"2024-02-18T13:41:26.725Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://103.171.164.79:7228/api/MeetingEvent/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+							"protocol": "http",
+							"host": [
+								"103",
+								"171",
+								"164",
+								"79"
+							],
+							"port": "7228",
+							"path": [
+								"api",
+								"MeetingEvent",
+								"3fa85f64-5717-4562-b3fc-2c963f66afa6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://103.171.164.79:7228/api/MeetingEvent/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+							"protocol": "http",
+							"host": [
+								"103",
+								"171",
+								"164",
+								"79"
+							],
+							"port": "7228",
+							"path": [
+								"api",
+								"MeetingEvent",
+								"3fa85f64-5717-4562-b3fc-2c963f66afa6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
