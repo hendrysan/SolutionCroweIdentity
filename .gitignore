@@ -50,7 +50,7 @@ TestResult.xml
 nunit-*.xml
 
 # Migrations EF dotnetcore
-[Mm]igrations/
+# [Mm]igrations/
 
 # Build Results of an ATL Project
 [Dd]ebugPS/
