@@ -10,7 +10,7 @@ builder.Services.AddAuthentication("Bearer")
                 .AddIdentityServerAuthentication("Bearer", options =>
                 {
                     options.ApiName = "api1";
-                    options.Authority = "https://103.171.164.79:49504";
+                    options.Authority = "http://103.171.164.79:49504";
                 });
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
@@ -31,8 +31,8 @@ builder.Services.AddSwaggerGen(options =>
         {
             AuthorizationCode = new OpenApiOAuthFlow
             {
-                AuthorizationUrl = new Uri("https://103.171.164.79:49504/connect/authorize"),
-                TokenUrl = new Uri("https://103.171.164.79:49504/connect/token"),
+                AuthorizationUrl = new Uri("http://103.171.164.79:49504/connect/authorize"),
+                TokenUrl = new Uri("http://103.171.164.79:49504/connect/token"),
                 Scopes = new Dictionary<string, string>
                             {
                                 {"api1", "Demo API - full access"}
