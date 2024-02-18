@@ -7,11 +7,3 @@ services:
     ports:
       - 49504:8080
     container_name: crowe_identityserver
-
-  webapi:
-    build:
-      context: .
-      dockerfile: ./Dockerfile-WebApi
-    ports:
-      - 7228:8080
-    container_name: crowe_webapi
