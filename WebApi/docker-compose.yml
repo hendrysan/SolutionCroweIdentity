@@ -1,9 +1,0 @@
-version: '3.4'
-services:
-   webapi:
-    build:
-      context: .
-      dockerfile: ./WebApi/Dockerfile
-    ports:
-      - 7228:8080
-    container_name: crowewebapi
