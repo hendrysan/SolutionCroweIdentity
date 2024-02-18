@@ -36,8 +36,8 @@ namespace IdentityServer
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     RequirePkce = true,
                     RequireClientSecret = false,
-                    RedirectUris = {"https://localhost:5001/swagger/oauth2-redirect.html"},
-                    AllowedCorsOrigins = {"https://localhost:5001"},
+                    RedirectUris = {"https://103.171.164.79:5001/swagger/oauth2-redirect.html"},
+                    AllowedCorsOrigins = {"https://103.171.164.79:5001"},
                     AllowedScopes = {"api1"}
                 }
             };
