@@ -10,7 +10,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["./IdentityServer.csproj", "IdentityServer/"]
-RUN dotnet restore "./IdentityServer.csproj"
+RUN dotnet restore "./IdentityServer/IdentityServer.csproj"
 COPY . .
 WORKDIR "/src/IdentityServer"
 RUN dotnet build "./IdentityServer.csproj" -c $BUILD_CONFIGURATION -o /app/build
