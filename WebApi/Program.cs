@@ -6,16 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy.AllowAnyOrigin()
-                 .AllowAnyMethod()
-                 .AllowAnyHeader()
-                 .AllowCredentials();
-    });
-});
+builder.Services.AddCors();
 
 builder.Services.AddAuthentication("Bearer")
                 .AddIdentityServerAuthentication("Bearer", options =>
@@ -58,7 +49,11 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-app.UseCors("AllowAll");
+app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials;
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
