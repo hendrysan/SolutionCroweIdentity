@@ -4,6 +4,7 @@ using IdentityServerHost.Quickstart.UI;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors();
 builder.Services.AddControllersWithViews();
 builder.Services.AddIdentityServer(options =>
 {
@@ -22,6 +23,12 @@ builder.Services.AddIdentityServer(options =>
 var app = builder.Build();
 
 //app.MapGet("/", () => "Hello World!");
+
+app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials;
 
 app.UseDeveloperExceptionPage();
 
